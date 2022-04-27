@@ -8,10 +8,16 @@ import Events from "./component/Pages/Events/Events";
 import Donation from "./component/Pages/Donation/Donation";
 import Tables from "./component/Pages/Table/Table";
 import AddEvent from "./component/Pages/AddEvent/AddEvent";
+import Register from "./component/LoginAuthentication/Register/Register";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Admin from "./component/LoginAuthentication/Admin/Admin";
 function App() {
   return (
     <div>
       <Header />
+
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/home" element={<Home />}></Route>
@@ -21,7 +27,10 @@ function App() {
           <Route path="addevent" element={<AddEvent />}></Route>
         </Route>
         <Route path="/blog" element={<Blog />}></Route>
+        <Route path="/register" element={<Register />}></Route>
+        <Route path="/admin" element={<Admin />}></Route>
       </Routes>
+      <ToastContainer />
     </div>
   );
 }

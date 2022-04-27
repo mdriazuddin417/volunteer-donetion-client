@@ -1,0 +1,11 @@
+.Register input {
+  width: 100%;
+  margin: 8px;
+  padding: 8px;
+  border: none;
+  border-bottom: 2px solid rgba(175, 175, 175, 0.61);
+  font-size: 18px;
+}
+.Register input:focus {
+  outline: none;
+}

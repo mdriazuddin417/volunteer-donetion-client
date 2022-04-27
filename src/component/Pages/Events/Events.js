@@ -22,7 +22,7 @@ const Events = () => {
             </CustomLink>
             <CustomLink
               to={"addevent"}
-              className=" text-decoration-none d-block fw-600"
+              className=" text-decoration-none d-block fw-600 active"
             >
               <img src={img2} alt="" width={30} /> Add event
             </CustomLink>

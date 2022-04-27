@@ -3,7 +3,6 @@ import "./SingleImage.css";
 const SingleImage = ({ picture }) => {
   const { img, name } = picture;
   const randomColor = parseInt(Math.random() * 100);
-  console.log(randomColor);
 
   return (
     <div className="cols   ">

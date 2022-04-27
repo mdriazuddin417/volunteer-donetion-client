@@ -13,7 +13,7 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <div className="home ">
+      <div className="home w-100  d-flex justify-content-center align-items-center">
         <div className="container ">
           <div className="d-flex justify-content-center align-items-center">
             <h2>THis is Home</h2>
