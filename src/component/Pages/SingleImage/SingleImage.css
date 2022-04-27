@@ -1,0 +1,25 @@
+.cart {
+  width: 100%;
+  background: #ff7044;
+  border-radius: 0px 0px 10px 10px;
+}
+.card-container {
+  width: 270px;
+  height: 320px;
+  position: relative;
+
+  border-radius: 10px;
+}
+.card-name {
+  position: absolute;
+  width: 270px;
+  height: 80px;
+  bottom: 0;
+  left: 0;
+
+  border-radius: 0px 0px 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}

@@ -4,8 +4,14 @@ import { Link } from "react-router-dom";
 import logo from "../../../logos/Group 1329.png";
 const Header = () => {
   return (
-    <div>
-      <Navbar collapseOnSelect expand="lg" bg="transparent" variant="light">
+    <div className=" container ">
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        bg="transparent"
+        variant="light"
+        className=""
+      >
         <Container>
           <Navbar.Brand as={Link} to="/">
             <img src={logo} alt="" className="img-fluid w-50" />
