@@ -10,8 +10,13 @@ import Loading from "../../../Loading/Loading";
 import auth from "../../../firebase.init";
 
 import { toast } from "react-toastify";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
   const { register, handleSubmit } = useForm();
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
@@ -27,6 +32,7 @@ const Register = () => {
 
   if (user || user2) {
     toast.success("Register Successful!!");
+    navigate(from, { replace: true });
   }
   if (error || error2) {
     toast.error("Please enter a valid information !!");
@@ -70,6 +76,10 @@ const Register = () => {
               className="bg-primary text-white fs-4 rounded mt-5"
             />
           </form>
+          <Link to="/admin" className="btn btn-link">
+            No Account ? Please Register
+          </Link>
+          <br />
           <button
             className="btn btn-outline-primary"
             onClick={() => signInWithGoogle()}

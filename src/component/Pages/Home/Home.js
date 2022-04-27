@@ -16,7 +16,22 @@ const Home = () => {
       <div className="home w-100  d-flex justify-content-center align-items-center">
         <div className="container ">
           <div className="d-flex justify-content-center align-items-center">
-            <h2>THis is Home</h2>
+            <div className="input-group mb-3 w-50">
+              <input
+                type="text"
+                className="form-control py-2"
+                placeholder="Search Charity"
+                aria-label="Recipient's username"
+                aria-describedby="button-addon2"
+              />
+              <button
+                className="btn btn-primary"
+                type="button"
+                id="button-addon2"
+              >
+                Search
+              </button>
+            </div>
           </div>
         </div>
       </div>

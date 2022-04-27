@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import img from "../../../logos/Group 1329.png";
-
+import { useUpdatePassword } from "react-firebase-hooks/auth";
 import Loading from "../../../Loading/Loading";
 import auth from "../../../firebase.init";
 import {
@@ -9,17 +9,21 @@ import {
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const Admin = () => {
-  const { register, handleSubmit } = useForm();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
+  const { register, handleSubmit } = useForm();
+  const [updatePassword, updating, updatingError] = useUpdatePassword(auth);
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, user2, loading2, error2] = useSignInWithGoogle(auth);
 
   const onSubmit = (data) => {
-    const email = data.email;
-    const password = data.password;
+    setEmail(data.email);
+    setPassword(data.password);
 
     signInWithEmailAndPassword(email, password);
   };
@@ -27,7 +31,7 @@ const Admin = () => {
   if (user || user2) {
     toast.success("Register Successful!!");
   }
-  if (error || error2) {
+  if (error || error2 || updatingError) {
     toast.error("Please enter a valid information !!");
   }
   return (
@@ -53,6 +57,19 @@ const Admin = () => {
               className="bg-primary text-white fs-4 rounded mt-5"
             />
           </form>
+          <Link to="/register" className="btn btn-link">
+            All ready have an account?
+          </Link>
+          <button
+            className="btn btn-link"
+            onClick={async () => {
+              await updatePassword(email);
+              toast.success("Updated password");
+            }}
+          >
+            Update password
+          </button>
+          <br />
           <button
             className="btn btn-outline-primary"
             onClick={() => signInWithGoogle()}

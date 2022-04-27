@@ -13,6 +13,7 @@ import Register from "./component/LoginAuthentication/Register/Register";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Admin from "./component/LoginAuthentication/Admin/Admin";
+import RequireAuth from "./RequireAuth/RequirAuth";
 function App() {
   return (
     <div>
@@ -21,12 +22,33 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/home" element={<Home />}></Route>
-        <Route path="/donation" element={<Donation />}></Route>
-        <Route path="/events" element={<Events></Events>}>
+        <Route
+          path="/donation"
+          element={
+            <RequireAuth>
+              <Donation />
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/events"
+          element={
+            <RequireAuth>
+              <Events />
+            </RequireAuth>
+          }
+        >
           <Route path="volunteer" element={<Tables />}></Route>
           <Route path="addevent" element={<AddEvent />}></Route>
         </Route>
-        <Route path="/blog" element={<Blog />}></Route>
+        <Route
+          path="/blog"
+          element={
+            <RequireAuth>
+              <Blog />
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/admin" element={<Admin />}></Route>
       </Routes>
