@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from "react";
+import usePictures from "../../../hooks/usePictures";
 import SingleImage from "../SingleImage/SingleImage";
 import "./Home.css";
 const Home = () => {
-  const [pictures, setPictures] = useState([]);
-  useEffect(() => {
-    fetch("pic.json")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setPictures(data);
-      });
-  }, []);
+  const [pictures, setPictures] = usePictures();
+
   return (
     <div>
       <div className="home w-100  d-flex justify-content-center align-items-center">

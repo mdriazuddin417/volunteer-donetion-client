@@ -5,6 +5,7 @@ import "./Register.css";
 import {
   useCreateUserWithEmailAndPassword,
   useSignInWithGoogle,
+  useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import Loading from "../../../Loading/Loading";
 import auth from "../../../firebase.init";
@@ -21,13 +22,16 @@ const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [signInWithGoogle, user2, loading2, error2] = useSignInWithGoogle(auth);
+  const [updateProfile, updating, error3] = useUpdateProfile(auth);
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const name = data.fullName;
     const email = data.email;
     const password = data.password;
 
     createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName: name });
+    toast("Updated profile");
   };
 
   if (user || user2) {
