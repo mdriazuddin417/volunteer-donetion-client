@@ -1,74 +1,28 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+
+import SingleDonation from "../SingleDonation/SingleDonation";
 import "./Donation.css";
+
 const Donation = () => {
+  const [picture, setPicture] = useState([]);
+
+  useEffect(() => {
+    const getPicture = async () => {
+      const url = `http://localhost:5000/picture`;
+      await axios.get(url).then((res) => {
+        setPicture(res.data);
+      });
+    };
+    getPicture();
+  }, []);
   return (
     <div className="donation">
       <div className="container my-4 ">
         <div className="row row-cols-lg-2 row-cols-md-2 row-cols-1">
-          <div className="cols">
-            <div className="d-flex gap-2 justify-content-around donation-container p-4">
-              <img src="https://i.ibb.co/WPmp0kx/extra-Volunteer.png" alt="" />
-              <div className="d-flex gap-2 justify-content-between">
-                <div className="fw-bold">
-                  <h4>Humanity More</h4>
-                  <p>29 sep, 2020</p>
-                </div>
-              </div>
-              <div className="d-flex align-items-end">
-                <button className="btn btn-secondary bg-opacity-10">
-                  Cancel
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="cols">
-            <div className="d-flex gap-2 justify-content-around donation-container p-4">
-              <img src="https://i.ibb.co/WPmp0kx/extra-Volunteer.png" alt="" />
-              <div className="d-flex gap-2 justify-content-between">
-                <div className="fw-bold">
-                  <h4>Humanity More</h4>
-                  <p>29 sep, 2020</p>
-                </div>
-              </div>
-              <div className="d-flex align-items-end">
-                <button className="btn btn-secondary bg-opacity-10">
-                  Cancel
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="cols">
-            <div className="d-flex gap-2 justify-content-around donation-container p-4">
-              <img src="https://i.ibb.co/WPmp0kx/extra-Volunteer.png" alt="" />
-              <div className="d-flex gap-2 justify-content-between">
-                <div className="fw-bold">
-                  <h4>Humanity More</h4>
-                  <p>29 sep, 2020</p>
-                </div>
-              </div>
-              <div className="d-flex align-items-end">
-                <button className="btn btn-secondary bg-opacity-10">
-                  Cancel
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="cols">
-            <div className="d-flex gap-2 justify-content-around donation-container p-4">
-              <img src="https://i.ibb.co/WPmp0kx/extra-Volunteer.png" alt="" />
-              <div className="d-flex gap-2 justify-content-between">
-                <div className="fw-bold">
-                  <h4>Humanity More</h4>
-                  <p>29 sep, 2020</p>
-                </div>
-              </div>
-              <div className="d-flex align-items-end">
-                <button className="btn btn-secondary bg-opacity-10">
-                  Cancel
-                </button>
-              </div>
-            </div>
-          </div>
+          {picture.map((pic) => (
+            <SingleDonation picture={pic} key={pic._id} />
+          ))}
         </div>
       </div>
     </div>

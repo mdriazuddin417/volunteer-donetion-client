@@ -4,7 +4,7 @@ const usePictures = () => {
   const [pictures, setPictures] = useState([]);
 
   useEffect(() => {
-    fetch("pic.json")
+    fetch("http://localhost:5000/pictures")
       .then((res) => res.json())
       .then((data) => {
         setPictures(data);

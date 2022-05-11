@@ -1,12 +1,26 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
+import { toast } from "react-toastify";
+
 import "./SingleImage.css";
 const SingleImage = ({ picture }) => {
-  const { img, name } = picture;
+  const { _id, img, name } = picture;
+
   const randomColor = parseInt(Math.random() * 100);
 
+  const handlePicture = (picture) => {
+    const url = `http://localhost:5000/picture`;
+    axios
+      .post(url, {
+        picture,
+      })
+      .then((res) => {
+        toast.success("Your choice complete");
+      });
+  };
   return (
-    <div className="cols   ">
-      <div className="card-container">
+    <div className="cols pe-auto  ">
+      <div className="card-container" onClick={() => handlePicture(picture)}>
         <img src={img} alt="" className="w-100 img-fluid " />
         <div
           className="card-name"

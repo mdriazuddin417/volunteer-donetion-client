@@ -12,6 +12,7 @@ import auth from "../../../firebase.init";
 
 import { toast } from "react-toastify";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -29,9 +30,25 @@ const Register = () => {
     const email = data.email;
     const password = data.password;
 
-    createUserWithEmailAndPassword(email, password);
+    const date = data.date;
+    const description = data.description;
+    const organize = data.Organize;
+
+    await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName: name });
     toast("Updated profile");
+
+    await axios
+      .post("http://localhost:5000/users", {
+        name,
+        email,
+        date,
+        description,
+        organize,
+      })
+      .then((res) => {
+        console.log(res);
+      });
   };
 
   if (user || user2) {
@@ -81,7 +98,7 @@ const Register = () => {
             />
           </form>
           <Link to="/admin" className="btn btn-link">
-            No Account ? Please Register
+            All ready have an Account
           </Link>
           <br />
           <button

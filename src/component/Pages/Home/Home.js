@@ -4,6 +4,19 @@ import SingleImage from "../SingleImage/SingleImage";
 import "./Home.css";
 const Home = () => {
   const [pictures, setPictures] = usePictures();
+  const [pageCount, setPageCount] = useState(0);
+  const [page, setPage] = useState(0);
+  const [size, setSize] = useState(10);
+
+  // useEffect(() => {
+  //   fetch("http://localhost:5000/picturesCount")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       const count = data.count;
+  //       const pages = Math.ceil(count / 10);
+  //       setPageCount(pages);
+  //     });
+  // }, []);
 
   return (
     <div>
@@ -32,10 +45,11 @@ const Home = () => {
       <div className="container mb-4" style={{ marginTop: " -139px" }}>
         <div className="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1 row-cols-1 g-3 mt-2">
           {pictures.map((picture) => (
-            <SingleImage key={picture.id} picture={picture}></SingleImage>
+            <SingleImage key={picture._id} picture={picture}></SingleImage>
           ))}
         </div>
       </div>
+      {/* <div>{[...Array(pageCount).keys()]}</div> */}
     </div>
   );
 };

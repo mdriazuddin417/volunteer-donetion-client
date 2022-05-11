@@ -9,9 +9,12 @@ import {
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 
 const Admin = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -30,6 +33,7 @@ const Admin = () => {
 
   if (user || user2) {
     toast.success("Register Successful!!");
+    navigate(from, { replace: true });
   }
   if (error || error2 || updatingError) {
     toast.error("Please enter a valid information !!");
@@ -58,7 +62,7 @@ const Admin = () => {
             />
           </form>
           <Link to="/register" className="btn btn-link">
-            All ready have an account?
+            No Account ? Please Register
           </Link>
           <button
             className="btn btn-link"

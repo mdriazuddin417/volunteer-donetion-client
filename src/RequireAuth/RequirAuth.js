@@ -8,7 +8,11 @@ function RequireAuth({ children }) {
   const [user, loading] = useAuthState(auth);
   let location = useLocation();
   if (loading) {
-    return <Loading />;
+    return (
+      <div className="d-flex justify-content-center align-items-center vh-100">
+        <Loading />
+      </div>
+    );
   }
   if (!user) {
     return <Navigate to="/admin" state={{ from: location }} replace />;
