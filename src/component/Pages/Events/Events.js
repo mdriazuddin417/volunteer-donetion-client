@@ -12,11 +12,13 @@ const Events = () => {
   return (
     <div>
       <div className="container mt-5">
-        <div className="row ">
-          <div className="col-4 text-start">
+        <div className="row g-3">
+          <div className="col-lg-4 col-md-6 col-12 text-start">
             <CustomLink
               to={"volunteer"}
-              className=" text-decoration-none d-block fw-600"
+              className=" text-decoration-none d-block fw-600 active"
+              role="button"
+              aria-pressed="true"
             >
               <img src={img3} alt="" width={30} /> Volunteer register list
             </CustomLink>
@@ -27,7 +29,10 @@ const Events = () => {
               <img src={img2} alt="" width={30} /> Add event
             </CustomLink>
           </div>
-          <div className="col-8 p-2 rounded" style={{ background: " #E5E5E5" }}>
+          <div
+            className="col-lg-8 col-md-6 col-12 p-2 rounded"
+            style={{ background: " #E5E5E5" }}
+          >
             <div>
               <Outlet />
             </div>

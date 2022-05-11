@@ -18,7 +18,7 @@ const AddEvent = () => {
         img,
       })
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
       });
   };
 

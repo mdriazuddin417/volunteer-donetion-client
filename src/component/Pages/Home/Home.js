@@ -42,11 +42,13 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="container mb-4" style={{ marginTop: " -139px" }}>
-        <div className="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1 row-cols-1 g-3 mt-2">
-          {pictures.map((picture) => (
-            <SingleImage key={picture._id} picture={picture}></SingleImage>
-          ))}
+      <div className="container mb-4 " style={{ marginTop: " -139px" }}>
+        <div className=" ">
+          <div className="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1 row-cols-1  g-3 mt-2 ">
+            {pictures.map((picture) => (
+              <SingleImage key={picture._id} picture={picture}></SingleImage>
+            ))}
+          </div>
         </div>
       </div>
       {/* <div>{[...Array(pageCount).keys()]}</div> */}

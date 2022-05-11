@@ -19,8 +19,12 @@ const SingleImage = ({ picture }) => {
       });
   };
   return (
-    <div className="cols pe-auto  ">
-      <div className="card-container" onClick={() => handlePicture(picture)}>
+    <div className="cols d-flex justify-content-center">
+      <div
+        className="card-container"
+        onClick={() => handlePicture(picture)}
+        style={{ cursor: "pointer" }}
+      >
         <img src={img} alt="" className="w-100 img-fluid " />
         <div
           className="card-name"

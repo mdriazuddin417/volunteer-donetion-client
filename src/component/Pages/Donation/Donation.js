@@ -16,12 +16,33 @@ const Donation = () => {
     };
     getPicture();
   }, []);
+  const handleRemove = (id) => {
+    const url = `http://localhost:5000/picture/${id}`;
+
+    console.log(url);
+    fetch(url, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        const remaining = picture.filter((pc) => pc._id !== id);
+        setPicture(remaining);
+      });
+  };
   return (
-    <div className="donation">
-      <div className="container my-4 ">
-        <div className="row row-cols-lg-2 row-cols-md-2 row-cols-1">
+    <div
+      className=" bg-secondary bg-opacity-10 pt-5"
+      style={{ height: "100vh" }}
+    >
+      <div className="container ">
+        <div className="row row-cols-lg-2 row-cols-md-2 row-cols-1 g-5 ">
           {picture.map((pic) => (
-            <SingleDonation picture={pic} key={pic._id} />
+            <SingleDonation
+              picture={pic}
+              key={pic._id}
+              handleRemove={handleRemove}
+            />
           ))}
         </div>
       </div>
