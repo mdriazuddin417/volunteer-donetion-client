@@ -19,7 +19,7 @@ const SingleImage = ({ picture }) => {
       });
   };
   return (
-    <div className="cols d-flex justify-content-center">
+    <div className="cols d-flex justify-content-center ">
       <div
         className="card-container"
         onClick={() => handlePicture(picture)}

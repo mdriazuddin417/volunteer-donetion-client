@@ -7,7 +7,7 @@
   width: 270px;
   height: 320px;
   position: relative;
-
+  transition: 0.5s;
   border-radius: 10px;
 }
 .card-name {
@@ -22,4 +22,9 @@
   justify-content: center;
   align-items: center;
   color: white;
+}
+.card-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #ff7044;
 }

@@ -16,13 +16,13 @@ const Home = () => {
             <div className="input-group mb-3 w-50">
               <input
                 type="text"
-                className="form-control py-2"
+                className="form-control py-2 home-input"
                 placeholder="Search Charity"
                 aria-label="Recipient's username"
                 aria-describedby="button-addon2"
               />
               <button
-                className="btn btn-primary"
+                className="btn btn-primary home-btn"
                 type="button"
                 id="button-addon2"
               >
