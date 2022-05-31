@@ -41,7 +41,7 @@ const Header = () => {
               </Nav.Link>
               <Nav.Link
                 as={CustomLink2}
-                to="/events"
+                to="/events/volunteer"
                 className="text-black fw-600"
               >
                 Events
@@ -55,9 +55,6 @@ const Header = () => {
               </Nav.Link>
             </Nav>
             <Nav className=" flex gap-3 justify-content-center align-items-center">
-              <Link to="/register" className="btn btn-primary">
-                Register
-              </Link>
               {user ? (
                 <button className="btn btn-dark" onClick={() => signOut(auth)}>
                   SignOut

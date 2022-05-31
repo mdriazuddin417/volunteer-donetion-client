@@ -14,9 +14,8 @@ import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 const Admin = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const from = location.state?.from?.pathname || "/";
 
   const { register, handleSubmit } = useForm();
   const [updatePassword, updating, updatingError] = useUpdatePassword(auth);
@@ -26,7 +25,10 @@ const Admin = () => {
 
   const onSubmit = (data) => {
     setEmail(data.email);
-    setPassword(data.password);
+    const email = data.email;
+
+    const password = data.password;
+    console.log(email, password);
 
     signInWithEmailAndPassword(email, password);
   };

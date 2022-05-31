@@ -8,16 +8,6 @@ const Home = () => {
   const [page, setPage] = useState(0);
   const [size, setSize] = useState(10);
 
-  // useEffect(() => {
-  //   fetch("http://localhost:5000/picturesCount")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       const count = data.count;
-  //       const pages = Math.ceil(count / 10);
-  //       setPageCount(pages);
-  //     });
-  // }, []);
-
   return (
     <div>
       <div className="home w-100  d-flex justify-content-center align-items-center">
@@ -51,7 +41,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-      {/* <div>{[...Array(pageCount).keys()]}</div> */}
     </div>
   );
 };

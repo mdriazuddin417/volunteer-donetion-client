@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
-import img1 from "../../../logos/trash-2 9.png";
 import img2 from "../../../logos/plus 1.png";
 import img3 from "../../../logos/users-alt 1.png";
-import Tables from "../Table/Table";
+
 import AddEvent from "../AddEvent/AddEvent";
 import { Link, Outlet } from "react-router-dom";
 import CustomLink from "../../../CustomLink/CustomLink";

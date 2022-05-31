@@ -13,6 +13,7 @@ import auth from "../../../firebase.init";
 import { toast } from "react-toastify";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { async } from "@firebase/util";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -34,28 +35,32 @@ const Register = () => {
     const description = data.description;
     const organize = data.Organize;
 
-    await createUserWithEmailAndPassword(email, password);
+    createUserWithEmailAndPassword(email, password);
+
     await updateProfile({ displayName: name });
     toast("Updated profile");
 
-    await axios
-      .post("http://localhost:5000/users", {
-        name,
-        email,
-        date,
-        description,
-        organize,
-      })
-      .then((res) => {
-        console.log(res);
-      });
+    const getPost = async () => {
+      await axios
+        .post("http://localhost:5000/users", {
+          name,
+          email,
+          date,
+          description,
+          organize,
+        })
+        .then((res) => {
+          console.log(res);
+        });
+    };
+    getPost();
   };
 
   if (user || user2) {
     toast.success("Register Successful!!");
     navigate(from, { replace: true });
   }
-  if (error || error2) {
+  if (error) {
     toast.error("Please enter a valid information !!");
   }
   return (
