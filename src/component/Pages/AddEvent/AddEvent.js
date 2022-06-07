@@ -11,7 +11,7 @@ const AddEvent = () => {
 
     console.log(name, date, description, img);
     axios
-      .post("http://localhost:5000/pictures", {
+      .post("https://volunteer-server.vercel.app/pictures", {
         name,
         date,
         description,

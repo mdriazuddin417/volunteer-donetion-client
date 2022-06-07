@@ -6,7 +6,7 @@ const usePicture = () => {
   const [picture, setPicture] = useState([]);
   useEffect(() => {
     const getPicture = async () => {
-      const url = `http://localhost:5000/picture`;
+      const url = `https://volunteer-server.vercel.app/picture`;
       axios.get(url).then((res) => {
         console.log(res.data);
       });

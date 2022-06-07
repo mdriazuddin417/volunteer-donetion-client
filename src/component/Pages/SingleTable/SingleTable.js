@@ -6,7 +6,7 @@ const SingleTable = ({ user }) => {
   const { name, email, description, organize, date, _id } = user;
 
   const removeUser = (id) => {
-    const url = `http://localhost:5000/users/${id}`;
+    const url = `https://volunteer-server.vercel.app/users/${id}`;
     axios.delete(url).then((res) => {
       if (res.data) {
         window.location.reload();

@@ -42,7 +42,7 @@ const Register = () => {
 
     const getPost = async () => {
       await axios
-        .post("http://localhost:5000/users", {
+        .post("https://volunteer-server.vercel.app/users", {
           name,
           email,
           date,

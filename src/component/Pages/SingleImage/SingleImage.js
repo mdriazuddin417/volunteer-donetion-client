@@ -9,7 +9,7 @@ const SingleImage = ({ picture }) => {
   const randomColor = parseInt(Math.random() * 100);
 
   const handlePicture = (picture) => {
-    const url = `http://localhost:5000/picture`;
+    const url = `https://volunteer-server.vercel.app/picture`;
     axios
       .post(url, {
         picture,

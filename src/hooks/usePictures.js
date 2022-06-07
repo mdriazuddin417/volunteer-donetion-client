@@ -4,7 +4,7 @@ const usePictures = () => {
   const [pictures, setPictures] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/pictures")
+    fetch("https://volunteer-server.vercel.app/pictures")
       .then((res) => res.json())
       .then((data) => {
         setPictures(data);

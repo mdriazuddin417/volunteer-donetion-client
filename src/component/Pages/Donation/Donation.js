@@ -9,7 +9,7 @@ const Donation = () => {
 
   useEffect(() => {
     const getPicture = async () => {
-      const url = `http://localhost:5000/picture`;
+      const url = `https://volunteer-server.vercel.app/picture`;
       await axios.get(url).then((res) => {
         setPicture(res.data);
       });
@@ -17,7 +17,7 @@ const Donation = () => {
     getPicture();
   }, []);
   const handleRemove = (id) => {
-    const url = `http://localhost:5000/picture/${id}`;
+    const url = `https://volunteer-server.vercel.app/picture/${id}`;
 
     console.log(url);
     fetch(url, {
